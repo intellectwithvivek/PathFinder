@@ -1,9 +1,8 @@
 import React from "react";
-import PathFindingVisualizer from "./PathFindingVisualizer/PathFindingVisualizer";
-import { MDBContainer } from "mdbreact";
+import PathFindier from "./PathFinder/PathFinder";
 
 function App() {
-  return <PathFindingVisualizer></PathFindingVisualizer>;
+  return <PathFindier/>
 }
 
 export default App;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { MDBRow, MDBCol } from "mdbreact";
-import "../PathFindingVisualizer.css";
+import "../PathFinder.css";
 import Node from "../Node/Node";
 import { dijkstra, getNodesInShortestPathOrder } from "../algorithms/dijkstra";
 import dfs from "../algorithms/dfs";
@@ -100,8 +100,8 @@ export default class Grid extends Component {
 
   setIsWall(wall) {
     if (
-      (wall.row != this.startNode.row || wall.col != this.startNode.col) &&
-      (wall.row != this.finishNode.row || wall.col != this.finishNode.col)
+      (wall.row !== this.startNode.row || wall.col !== this.startNode.col) &&
+      (wall.row !== this.finishNode.row || wall.col !== this.finishNode.col)
     )
       return () => {
         this.grid[wall.row][wall.col].isWall = true;
@@ -111,8 +111,8 @@ export default class Grid extends Component {
 
   setIsIncludedInMaze(wall) {
     if (
-      (wall.row != this.startNode.row || wall.col != this.startNode.col) &&
-      (wall.row != this.finishNode.row || wall.col != this.finishNode.col)
+      (wall.row !== this.startNode.row || wall.col !== this.startNode.col) &&
+      (wall.row !== this.finishNode.row || wall.col !== this.finishNode.col)
     )
       return () => {
         this.mazeNodesCurrentIndex++;
@@ -162,13 +162,6 @@ export default class Grid extends Component {
     this.setState({ selectedAlgorithm: algorithm });
   }
 
-  /*sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-  }*/
 
   //listeners
   onReset = () => {
@@ -264,14 +257,13 @@ export default class Grid extends Component {
         }
       }
     }
-    //this.setState({ grid: this.grid });
   }
 
   handleMouseEnter(row, col) {
     if (this.isMousePressed) {
       if (
         this.draggingStart &&
-        (row != this.finishNode.row || col != this.finishNode.col)
+        (row !== this.finishNode.row || col !== this.finishNode.col)
       ) {
         this.nodes[this.startNode.row][this.startNode.col].setStart(false);
         this.grid[this.startNode.row][this.startNode.col].isStart = false;
@@ -281,7 +273,7 @@ export default class Grid extends Component {
         this.grid[this.startNode.row][this.startNode.col].isStart = true;
       } else if (
         this.draggingFinish &&
-        (this.startNode.row != row || this.startNode.col != col)
+        (this.startNode.row !== row || this.startNode.col !== col)
       ) {
         this.nodes[this.finishNode.row][this.finishNode.col].setFinish(false);
         this.grid[this.finishNode.row][this.finishNode.col].isFinish = false;
@@ -291,8 +283,8 @@ export default class Grid extends Component {
         this.grid[this.finishNode.row][this.finishNode.col].oisFinish = true;
       } else {
         if (
-          (row != this.startNode.row && col != this.startNode.col) ||
-          (row != this.finishNode.row && col != this.finishNode.col)
+          (row !== this.startNode.row && col !== this.startNode.col) ||
+          (row !== this.finishNode.row && col !== this.finishNode.col)
         ) {
           this.grid[row][col].isWall = true;
           this.nodes[row][col].setIsWall(true);
@@ -334,9 +326,6 @@ export default class Grid extends Component {
       if (this.isVisualizing) this.visualizationStopped();
       this.isVisualizing = true;
     }
-    const grid = this.grid;
-    const startNode = grid[this.startNode.row][this.startNode.col];
-    const finishNode = grid[this.finishNode.row][this.finishNode.col];
     for (const row of this.grid) {
       for (const node of row) {
         node.distance = Infinity;

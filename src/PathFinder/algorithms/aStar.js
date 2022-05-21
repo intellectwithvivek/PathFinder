@@ -22,8 +22,9 @@ export default function aStar(grid, startNode, finishNode) {
 }
 
 function sortNodesByDistance(unvisitedNodes) {
-  unvisitedNodes.sort((nodeA, nodeB) => nodeA.heuristicDistance - nodeB.heuristicDistance);
-  //nodeA.distance + nodeA.heuristicDistance - (nodeB.distance + nodeB.heuristicDistance)
+  unvisitedNodes.sort(
+    (nodeA, nodeB) => nodeA.heuristicDistance - nodeB.heuristicDistance
+  );
 }
 
 function updateUnvisitedNeighbours(node, grid, finishNode) {
@@ -43,10 +44,6 @@ function updateUnvisitedNeighbours(node, grid, finishNode) {
 function getUnvisitedNeighbours(node, grid) {
   const neighbours = [];
   const { col, row } = node;
-  /*if (row > 0) neighbours.push(grid[row - 1][col]);
-      if (row < grid.length - 1) neighbours.push(grid[row + 1][col]);
-      if (col > 0) neighbours.push(grid[row][col - 1]);
-      if (col < grid[0].length - 1) neighbours.push(grid[row][col + 1]);*/
   if (col < grid[0].length - 1) neighbours.push(grid[row][col + 1]);
   if (row < grid.length - 1) neighbours.push(grid[row + 1][col]);
   if (col > 0) neighbours.push(grid[row][col - 1]);
@@ -58,10 +55,10 @@ function getManhattanDistance(x1, y1, x2, y2) {
   return Math.abs(x1 - x2) + Math.abs(y1 - y2);
 }
 
-function getDiagonalDistance(x1, y1, x2, y2) {
-  return Math.max(Math.abs(x1 - x2), Math.abs(y1 - y2));
-}
+// function getDiagonalDistance(x1, y1, x2, y2) {
+//   return Math.max(Math.abs(x1 - x2), Math.abs(y1 - y2));
+// }
 
-function getEuclideanDistance(x1, y1, x2, y2) {
-  return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
-}
+// function getEuclideanDistance(x1, y1, x2, y2) {
+//   return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+// }

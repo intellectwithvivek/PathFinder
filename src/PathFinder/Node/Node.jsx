@@ -5,7 +5,7 @@ import "./Node.css";
 export default class Node extends Component {
   constructor(props) {
     super(props);
-    const { row, col, isFinish, isStart, isWall, isVisited, isIncludedInPath, weight, key } = this.props;
+    const { row, col, isFinish, isStart, isWall, weight, key } = this.props;
     this.baseClassName = isFinish ? "node-finish" : isStart ? "node-start" : "";
     this.className = this.baseClassName;
     this.state = {
@@ -57,7 +57,8 @@ export default class Node extends Component {
   }
 
   setIsIncludedInPath(isIncludedInPath) {
-    if (isIncludedInPath) this.className = this.baseClassName + " node-shortest-path";
+    if (isIncludedInPath)
+      this.className = this.baseClassName + " node-shortest-path";
     this.setState({ isIncludedInPath: isIncludedInPath });
   }
 
@@ -71,7 +72,8 @@ export default class Node extends Component {
   }
 
   render() {
-    const { row, col, isWall, onMouseDown, onMouseEnter, onMouseUp } = this.props;
+    const { row, col, isWall, onMouseDown, onMouseEnter, onMouseUp } =
+      this.props;
     if (isWall) {
       this.className = this.baseClassName + " node-wall";
       //this.setState({ isWall: isWall });

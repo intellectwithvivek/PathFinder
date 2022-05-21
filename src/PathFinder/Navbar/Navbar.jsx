@@ -8,11 +8,6 @@ import {
   MDBNavLink,
   MDBNavbarToggler,
   MDBCollapse,
-  MDBFormInline,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem,
 } from "mdbreact";
 import { BrowserRouter as Router } from "react-router-dom";
 

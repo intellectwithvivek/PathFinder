@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import {
   MDBBtn,
   MDBBtnGroup,
-  MDBIcon,
   MDBCol,
   MDBRow,
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
   MDBDropdownItem,
-  MDBRangeInput,
 } from "mdbreact";
 
 export default class Toolbar extends Component {

@@ -1,13 +1,12 @@
-import reactDom from "react-dom";
 import React, { Component } from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBFooter, MDBBtn } from "mdbreact";
-import "./PathFindingVisualizer.css";
+import { MDBContainer} from "mdbreact";
+import "./PathFinder.css";
 import Navbar from "./Navbar/Navbar";
 import Grid from "./Grid/Grid";
 import Toolbar from "./Toolbar/Toolbar";
 import Footer from "./Footer/Footer";
 
-export default class PathFindingVisualizer extends Component {
+export default class PathFinder extends Component {
   constructor(props) {
     super(props);
     this.state = {};
