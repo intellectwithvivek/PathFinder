@@ -16,7 +16,7 @@ export default class Footer extends Component {
           style={{ backgroundColor: "#e0e0e0" }}
         >
           &copy; {new Date().getFullYear()} Copyright:{" "}
-          <a href=""> Vivek Kumar Singh </a>
+          <a href=""> Vivek Kumar Singh ! </a>
         </MDBCol>
       </MDBRow>
     );
